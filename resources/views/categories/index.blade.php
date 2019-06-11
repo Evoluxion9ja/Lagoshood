@@ -2,8 +2,11 @@
 
 @section('content')
     <div class="row main-row justify-content-center">
-        <div class="col-md-9">
+        <div class="col-md-9 jumbotron">
             <div class="row">
+                <div class="col-md-6">
+                    <h1>Manage Categories Here</h1>
+                </div>
                 <div class="col-md-6">
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary btn-block btn-md" data-toggle="modal" data-target="#exampleModalLong">
@@ -35,9 +38,23 @@
                     </div>
                     {!! Form::close() !!}
                 </div>
-                <div class="col-md-6">
-                    <a href="" class="btn btn-primary btn-block btn-md">Update Category</a>
-                </div>
+            </div>
+            <hr>
+            <div class="row">
+                @foreach ($categories as $category)
+                    <div class="col-md-3">
+                        <div class="card" style="width: 16rem; margin-bottom: 5px;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{$category->name}}</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                @foreach ($category->post as $post)
+                                    <p>{{$post->count()}}</p>
+                                @endforeach
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

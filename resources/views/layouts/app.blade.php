@@ -5,6 +5,9 @@
     <div id="app">
         @include('partials._nav')
         <main class="py-4">
+            <div class="container">
+                @include('partials._validate')
+            </div>
             @yield('content')
         </main>
     </div>

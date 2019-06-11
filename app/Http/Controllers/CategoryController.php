@@ -20,8 +20,10 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
+        $posts = Post::all();
         return view('categories.index',[
-            'categories' => $categories
+            'categories' => $categories,
+            'posts' => $posts
         ]);
     }
 
