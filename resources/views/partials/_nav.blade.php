@@ -53,8 +53,22 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
-
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <small style="margin-left: 15px;">
+                                <strong>ACCOUNT</strong>
+                            </small><hr>
+                                <a href="" class="dropdown-item">My Account</a>
+                                <a href="" class="dropdown-item">News Letter</a>
+                                <a href="" class="dropdown-item">Manage Your Subscription</a>
+                                <a href="" class="dropdown-item">Need Help</a><hr>
+                                <a href="" class="dropdown-item">Suggest New Videos</a>
+                                <a href="" class="dropdown-item">Report Any Abuse</a><hr>
+                            <small style="margin-left: 15px;">
+                                <strong>DASHBOARDS</strong>
+                            </small><hr>
+                            <a href="{{  route('category.index') }}" class="dropdown-item">Category Dashboard</a>
+                            <a href="{{  route('category.index') }}" class="dropdown-item">Tags Dashboard</a>
+                            <a href="{{  route('category.index') }}" class="dropdown-item">Movies Dashboard</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
