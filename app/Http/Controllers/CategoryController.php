@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
+use App\Post;
+use App\Tag;
+use App\Comment;
+use App\Reply;
+use App\User;
 
 class CategoryController extends Controller
 {
@@ -13,7 +19,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('categories.index');
+        $categories = Category::all();
+        return view('categories.index',[
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -34,7 +43,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|min:5|max:255'
+        ]);
+
+        $categories = new Category;
+        $categories->name = $request->input('name');
+
+        $categories->save();
+
+        return redirect()->route('category.index')->withSuccess('Category created successfully');
     }
 
     /**

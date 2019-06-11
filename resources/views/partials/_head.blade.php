@@ -9,6 +9,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    {{Html::script('js/parsley.min.js')}}
     {{Html::script('js/script.js')}}
 
     <!-- Fonts -->
@@ -19,5 +20,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {{Html::style('css/parsley.css')}}
     {{Html::style('css/style.css')}}
 </head>

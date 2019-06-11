@@ -1,0 +1,12 @@
+*{
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+body{
+    font-family: "Raleway";
+    background: #000;
+}
+.modal-dialog{
+    max-width: 700px;
+}
