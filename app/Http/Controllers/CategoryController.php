@@ -65,7 +65,10 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $categories = Category::find($id);
+        return view('categories.show',[
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -88,7 +91,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|min:5|max:255'
+        ]);
+
+        $categories = Category::findOrFail($id);
+        $categories->name = $request->input('name');
+        $categories->save();
+
+        return redirect()->route('category.show', $categories->id)->withSuccess('Category updated successfully');
     }
 
     /**
@@ -99,6 +110,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $categories = Category::find($id);
+
+        $categories->delete();
+
+        return redirect()->route('category.index')->withSuccess('Category Deleted Successfully');
     }
 }

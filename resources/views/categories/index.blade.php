@@ -47,10 +47,8 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{$category->name}}</h5>
                                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                @foreach ($category->post as $post)
-                                    <p>{{$post->count()}}</p>
-                                @endforeach
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <small><strong><p>{{$category->post()->count()}} Videos</p></strong></small>
+                                <a href="{{route('category.show', $category->id)}}" class="btn btn-outline-primary btn-sm">Dashboard</a>
                             </div>
                         </div>
                     </div>
