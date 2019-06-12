@@ -38,14 +38,15 @@ class User extends Authenticatable
     ];
 
     public function post(){
-        $this->hasMany('App\Post');
-    }
-
-    public function reply(){
-        $this->hasMany('App/Reply');
+        return $this->hasmany('App\Post');
     }
 
     public function comment(){
-        $this->hasMany('App\Comment');
+        return $this->hasMany('App\Comment');
     }
+
+    public function reply(){
+        return $this->hasmany('App\Reply');
+    }
+
 }
