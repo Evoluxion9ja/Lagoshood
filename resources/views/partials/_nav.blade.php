@@ -67,7 +67,7 @@
                                 <strong>DASHBOARDS</strong>
                             </small><hr>
                             <a href="{{  route('category.index') }}" class="dropdown-item">Category Dashboard</a>
-                            <a href="{{  route('category.index') }}" class="dropdown-item">Tags Dashboard</a>
+                            <a href="{{  route('tag.index') }}" class="dropdown-item">Tags Dashboard</a>
                             <a href="{{  route('category.index') }}" class="dropdown-item">Movies Dashboard</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

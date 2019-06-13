@@ -39,6 +39,30 @@ Route::match(['DELETE'], 'categories/{id}', [
     'as' => 'category.destroy'
 ]);
 
+//Route For Tags
+Route::match(['GET', 'POST'], '/tags', [
+    'uses' => 'TagController@index',
+    'as' => 'tag.index'
+]);
+Route::match(['POST'], 'tags/store', [
+    'uses' => 'TagController@store',
+    'as' => 'tag.store'
+]);
+Route::match(['GET', 'POST'], 'tags/{id}', [
+    'uses' => 'TagController@show',
+    'as' => 'tag.show'
+]);
+Route::match(['PUT'], 'tags/{id}', [
+    'uses' => 'TagController@update',
+    'as' => 'tag.update'
+]);
+Route::match(['DELETE'], 'tags/{id}', [
+    'uses' => 'TagController@destroy',
+    'as' => 'tag.destroy'
+]);
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

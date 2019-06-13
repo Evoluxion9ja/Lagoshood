@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
+use App\Post;
+use App\Tag;
+use App\Comment;
+use App\Reply;
+use App\User;
 
 class TagController extends Controller
 {
@@ -13,7 +19,10 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::orderBy('name', 'asc')->paginate(12);
+        return view('tags.index',[
+            'tags' => $tags
+        ]);
     }
 
     /**
@@ -34,7 +43,14 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255'
+        ]);
+
+        $tags = new Tag;
+        $tags->name = $request->input('name');
+        $tags->save();
+        return redirect()->route('tag.index')->withSuccess('Movie Tag Created Successfully');
     }
 
     /**
@@ -45,7 +61,10 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        $tags = Tag::findOrfail($id);
+        return view('tags.show',[
+            'tags' => $tags
+        ]);
     }
 
     /**
@@ -68,7 +87,14 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255'
+        ]);
+        $tags = Tag::find($id);
+        $tags->name = $request->input('name');
+        $tags->save();
+
+        return redirect()->route('tag.show', $tags->id)->withSuccess('Tag has been updated');
     }
 
     /**
@@ -79,6 +105,10 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tags = Tag::findOrFail($id);
+         $tags->post()->detach();
+         $tags->delete();
+
+         return redirect()->route('tag.index')->withSuccess('Tag Deleted Successfully');
     }
 }
