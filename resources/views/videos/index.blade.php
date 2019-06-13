@@ -35,16 +35,19 @@
                                             {!! Form::label('slug', 'Post Slug') !!}
                                             {!! Form::text('slug', '', ['class' => 'form-control', 'required' => '']) !!}
                                         </div>
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <label class="input-group-text" for="category_id">Category</label>
+                                        <div class="form-group">
+                                            {!! Form::label('category_id', $text, [$options]) !!}
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <label class="input-group-text" for="category_id">Category</label>
+                                                </div>
+                                                <select class="custom-select select-multi" id="category_id" name="category_id[]" multiple="multiple" style="width: 87%;">
+                                                    <p>Choose Category</p>
+                                                    @foreach ($categories as $category)
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                            <select class="custom-select" id="category_id" name="category_id">
-                                                <option selected>Choose Category</option>
-                                                @foreach ($categories as $category)
-                                                <option value="{{$category->id}}">{{$category->name}}</option>
-                                                @endforeach
-                                            </select>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
