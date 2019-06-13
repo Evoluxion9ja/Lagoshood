@@ -61,7 +61,27 @@ Route::match(['DELETE'], 'tags/{id}', [
     'as' => 'tag.destroy'
 ]);
 
-
+//Route For Post
+Route::match(['GET', 'POST'], '/publish', [
+    'uses' => 'PostController@index',
+    'as' => 'publish.index'
+]);
+Route::match(['POST'], 'publish/store', [
+    'uses' => 'PostController@store',
+    'as' => 'publish.store'
+]);
+Route::match(['POST'], 'publish/{id}', [
+    'uses' => 'PostController@show',
+    'as' => 'publish.show'
+]);
+Route::match(['PUT'], 'publish/{id}', [
+    'uses' => 'PostController@update',
+    'as' => 'publish.update'
+]);
+Route::match(['DELETE'], 'publish/{id}', [
+    'uses' => 'PostController@destroy',
+    'as' => 'publish.destroy'
+]);
 
 Auth::routes();
 

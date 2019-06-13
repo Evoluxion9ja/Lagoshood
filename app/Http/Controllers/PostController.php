@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
+use App\Post;
+use App\Tag;
+use App\Comment;
+use App\Reply;
+use App\User;
 
 class PostController extends Controller
 {
@@ -13,7 +19,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::orderBy('id', 'asc')->get();
+        $categories = Category::all();
+        return view('videos.index',[
+            'posts' => $posts,
+            'categories' => $categories
+        ]);
     }
 
     /**
