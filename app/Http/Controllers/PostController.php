@@ -21,9 +21,11 @@ class PostController extends Controller
     {
         $posts = Post::orderBy('id', 'asc')->get();
         $categories = Category::all();
+        $tags = Tag::all();
         return view('videos.index',[
             'posts' => $posts,
-            'categories' => $categories
+            'categories' => $categories,
+            'tags' => $tags
         ]);
     }
 
@@ -45,7 +47,39 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|min:10|max:255',
+            'slug' => 'required|max:255|alpha_dash',
+            'categories' => 'required|max:255',
+            'tags' => 'required|max:255',
+            'content' => 'required|min:10',
+            'image' => 'image|required|max:2000|nullable'
+        ]);
+
+        //Upload image
+        if($request->hasFile('image')){
+            $imageNameWithExt = $request->file('image')->getClientOriginalName();
+            $imageName = pathinfo($imageNameWithExt, PATHINFO_FILENAME);
+            $imageExtension = $request->file('image')->getClientOriginalExtension();
+            $imageFullName = $imageName.'_'.time().'.'.$imageExtension;
+            $location = $request->file('image')->storeAs('public/blog_files', $imageFullName);
+        }
+        else{
+            $imageFullName = 'no_image.jpg';
+        }
+
+        $posts = new Post;
+        $posts->title = $request->input('title');
+        $posts->slug = $request->input('slug');
+        $posts->content = $request->input('content');
+        $posts->image = $imageFullName;
+        $posts->user_id = auth()->user()->id;
+        $posts->save();
+
+        $posts->categories()->sync($request->categories, false);
+        $posts->tags()->sync($request->tags, false);
+
+        return redirect()->route('publish.index')->withSuccess('Article posted successfully');
     }
 
     /**

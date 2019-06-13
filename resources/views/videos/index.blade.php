@@ -36,23 +36,44 @@
                                             {!! Form::text('slug', '', ['class' => 'form-control', 'required' => '']) !!}
                                         </div>
                                         <div class="form-group">
-                                            {!! Form::label('category_id', $text, [$options]) !!}
+                                            {!! Form::label('categories', 'Category') !!}
                                             <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <label class="input-group-text" for="category_id">Category</label>
-                                                </div>
-                                                <select class="custom-select select-multi" id="category_id" name="category_id[]" multiple="multiple" style="width: 87%;">
-                                                    <p>Choose Category</p>
+                                                <select class="custom-select select-multi" id="categories" name="categories[]" multiple="multiple" style="width: 100%;">
+                                                    <p>Choose Category(s)</p>
                                                     @foreach ($categories as $category)
                                                     <option value="{{$category->id}}">{{$category->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            {!! Form::label('tags', 'Movie Tags') !!}
+                                            <div class="input-group mb-3">
+                                                <select class="custom-select select-multi" required="required" id="tags" name="tags[]" multiple="multiple" style="width: 100%;">
+                                                    <p>Choose Category</p>
+                                                    @foreach ($tags as $tag)
+                                                    <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            {!! Form::label('content', 'Content') !!}
+                                            {!! Form::textarea('content', '', ['class' => 'form-control', 'required' => '']) !!}
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="image" name="image">Upload</span>
+                                            </div>
+                                            <div class="custom-file">
+                                              <input type="file" class="custom-file-input" id="image" name="image" aria-describedby="inputGroupFileAddon01">
+                                              <label class="custom-file-label" for="image">Choose file</label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
+                                        {!! Form::submit('Publish Post', ['class' => 'btn btn-outline-primary btn-md']) !!}
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
                                     </div>
                                 </div>
                             </div>
