@@ -68,7 +68,7 @@
                             </small><hr>
                             <a href="{{  route('category.index') }}" class="dropdown-item">Category Dashboard</a>
                             <a href="{{  route('tag.index') }}" class="dropdown-item">Tags Dashboard</a>
-                            <a href="{{  route('publish.index') }}" class="dropdown-item">Movies Dashboard</a>
+                            <a href="{{  route('publish.index') }}" class="dropdown-item">Publsh Dashboard</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
@@ -102,35 +102,38 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><small>{{strtoupper(__('Movies A-Z'))}}</small></a>
+                    <a class="nav-link" href="#"><small><strong>{{strtoupper(__('Movies A-Z'))}}</strong></small></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><small>{{strtoupper(__('Hollywood'))}}</small></a>
+                    <a class="nav-link" href="#"><small><strong>{{strtoupper(__('Hollywood'))}}</strong></small></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><small>{{strtoupper(__('Nollywood'))}}</small></a>
+                    <a class="nav-link" href="#"><small><strong>{{strtoupper(__('Nollywood'))}}</strong></small></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><small>{{strtoupper(__('Bollywood'))}}</small></a>
+                    <a class="nav-link" href="#"><small><strong>{{strtoupper(__('Bollywood'))}}</strong></small></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><small>{{strtoupper(__('Tv Series'))}}</small></a>
+                    <a class="nav-link" href="#"><small><strong>{{strtoupper(__('Tv Series'))}}</strong></small></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><small>{{strtoupper(__('Documenatries'))}}</small></a>
+                    <a class="nav-link" href="#"><small><strong>{{strtoupper(__('Documenatries'))}}</strong></small></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><small>{{strtoupper(__('Star Cast'))}}</small></a>
+                    <a class="nav-link" href="#"><small><strong>{{strtoupper(__('Star Cast'))}}</strong></small></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><small>{{strtoupper(__('Music'))}}</small></a>
+                    <a class="nav-link" href="#"><small><strong>{{strtoupper(__('Music'))}}</strong></small></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><small>{{strtoupper(__('Year'))}}</small></a>
+                    <a class="nav-link" href="#"><small><strong>{{strtoupper(__('Year'))}}</strong></small></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><small><strong>{{strtoupper(__('Genre'))}}</strong></small></a>
                 </li>
                 &emsp;&emsp;&emsp;&emsp;&emsp;
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><small>{{strtoupper(__('Explore'))}}</small></a>
+                    <a class="nav-link" href="#"><small><strong>{{strtoupper(__('Explore'))}}</strong></small></a>
                 </li>
             </ul>
         </div>

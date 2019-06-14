@@ -47,7 +47,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{$tag->name}}</h5>
                                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <small><strong><p>{{$tag->post()->count()}} Videos</p></strong></small>
+                                <small><strong><p></p></strong></small>
                                 <a href="{{route('tag.show', $tag->id)}}" class="btn btn-outline-primary btn-sm">Dashboard</a>
                             </div>
                         </div>

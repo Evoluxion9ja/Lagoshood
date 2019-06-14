@@ -49,7 +49,7 @@
                                         <div class="form-group">
                                             {!! Form::label('tags', 'Movie Tags') !!}
                                             <div class="input-group mb-3">
-                                                <select class="custom-select select-multi" required="required" id="tags" name="tags[]" multiple="multiple" style="width: 100%;">
+                                                <select class="custom-select select-multi" id="tags" name="tags[]" multiple="multiple" style="width: 100%;">
                                                     <p>Choose Category</p>
                                                     @foreach ($tags as $tag)
                                                     <option value="{{$tag->id}}">{{$tag->name}}</option>
@@ -67,7 +67,7 @@
                                             </div>
                                             <div class="custom-file">
                                               <input type="file" class="custom-file-input" id="image" name="image" aria-describedby="inputGroupFileAddon01">
-                                              <label class="custom-file-label" for="image">Choose file</label>
+                                              <label class="custom-file-label" for="image" name="image">Choose file</label>
                                             </div>
                                         </div>
                                     </div>

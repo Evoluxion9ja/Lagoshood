@@ -50,10 +50,10 @@ class PostController extends Controller
         $this->validate($request, [
             'title' => 'required|min:10|max:255',
             'slug' => 'required|max:255|alpha_dash',
-            'categories' => 'required|max:255',
-            'tags' => 'required|max:255',
+            'categories' => 'max:255',
+            'tags' => 'max:255',
             'content' => 'required|min:10',
-            'image' => 'image|max:2000|nullable'
+            'image' => 'image|nullable|max:1999'
         ]);
 
         //Upload image
