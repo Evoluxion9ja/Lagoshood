@@ -53,7 +53,7 @@ class PostController extends Controller
             'categories' => 'required|max:255',
             'tags' => 'required|max:255',
             'content' => 'required|min:10',
-            'image' => 'image|required|max:2000|nullable'
+            'image' => 'image|max:2000|nullable'
         ]);
 
         //Upload image
