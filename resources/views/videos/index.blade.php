@@ -67,7 +67,7 @@
                                             </div>
                                             <div class="custom-file">
                                               <input type="file" class="custom-file-input" id="image" name="image" aria-describedby="inputGroupFileAddon01">
-                                              <label class="custom-file-label" for="image" name="image">Choose file</label>
+                                              <label class="custom-file-label" for="image" name="image  ">Choose file</label>
                                             </div>
                                         </div>
                                     </div>
@@ -91,6 +91,28 @@
                 <div class="col-md-12">
                     <hr>
                 </div>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-bordered table-dark">
+                    <thead>
+                        <th><small><strong>Post ID</strong></small></th>
+                        <th><small><strong>Post Preview</strong></small></th>
+                        <th><small><strong>Post Categories</strong></small></th>
+                        <th><small><strong>Date Created</strong></small></th>
+                        <th><small><strong>Actions</strong></small></th>
+                    </thead>
+                    <tbody>
+                        @foreach ($posts as $post)
+                            <tr>
+                                <th><small><strong>{{$post->id}}</strong></small></th>
+                                <td><small>{{str_limit($post->content, 100)}}</small></td>
+                                <td>@foreach ($post->categories as $category)
+                                    <small><strong>{{$category->name}}</strong></small>
+                                @endforeach</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

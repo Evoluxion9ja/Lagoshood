@@ -90,7 +90,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $posts = Post::orderBy('id', 'asc')->get();
+        return view('videos.show', [
+            'posts' => $posts
+        ]);
     }
 
     /**
